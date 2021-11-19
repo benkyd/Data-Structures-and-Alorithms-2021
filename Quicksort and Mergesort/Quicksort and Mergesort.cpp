@@ -53,15 +53,18 @@ void Merge(int* arr, int start, int mid, int end)
     {
 
     }
-
+    delete[] leftHalf;
+    delete[] rightHalf;
 }
 
 void MergeSort(int* arr, int start, int end)
 {
-    int mid = start + (start + end) / 2;
-    if (start >= end)
-    MergeSort(arr, start, mid);
-    MergeSort(arr, mid + 1, end);
+    int mid = (end - start) + (end / 2);
+    if (start < end)
+    {
+        MergeSort(arr, start, mid);
+        MergeSort(arr, mid + 1, end);
+    }
     Merge(arr, start, mid, end);
 }
 
